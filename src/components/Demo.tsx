@@ -1,3 +1,12 @@
+import { Link } from "react-router-dom";
+
 export const Demo = () => {
-  return <div className="text-white">DEMO PAGE</div>;
+  return (
+    <div>
+      <p className="text-white">Demo page</p>
+      <Link to={"/"} className="text-white">
+        Return home
+      </Link>
+    </div>
+  );
 };

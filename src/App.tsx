@@ -5,8 +5,8 @@ function App() {
   return (
     <>
       <div className="App text-3xl font-bold text-white">Hello world</div>
-      <Link to={"/demo"}>
-        <div className="text-white">TO DEMO</div>
+      <Link to={"/demo"} className="text-white">
+        To Demo
       </Link>
     </>
   );

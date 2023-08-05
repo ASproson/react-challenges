@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Demo } from "./components/Demo";
+import { Todos } from "./components/todos/Todos";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/demo",
     element: <Demo />,
+  },
+  {
+    path: "/todos",
+    element: <Todos />,
   },
 ]);
 

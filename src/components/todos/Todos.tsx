@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const { v4: uuidv4 } = require('uuid');
 
 const todoList = [
@@ -28,6 +29,10 @@ export const Todos = () => {
 
   return (
     <div className="text-center text-white">
+      <div>
+        <Link to={'/'}>Home</Link>
+      </div>
+
       {todos.map((todo) => {
         return <ToDo key={todo.id} todo={todo} />;
       })}

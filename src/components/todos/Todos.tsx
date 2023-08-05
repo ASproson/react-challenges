@@ -1,23 +1,25 @@
-import { useState } from "react";
-const { v4: uuidv4 } = require("uuid");
+import { useState } from 'react';
+const { v4: uuidv4 } = require('uuid');
 
 const todoList = [
   {
     id: uuidv4(),
-    title: "Task One",
+    title: 'Task One',
   },
   {
     id: uuidv4(),
-    title: "Task Two",
+    title: 'Task Two',
   },
 ];
 
 export const Todos = () => {
   const [todos, setTodos] = useState(todoList);
+  const [newToDo, setNewToDo] = useState('');
 
-  const handleAddTodo = () => {
-    const newToDo = { id: uuidv4(), title: `Task Three` };
-    setTodos((prev) => [...prev, newToDo]);
+  const handleAddTodo = (newToDo: string) => {
+    const newTask = { id: uuidv4(), title: newToDo };
+    setTodos((prev) => [...prev, newTask]);
+    setNewToDo('');
   };
 
   const removeLastToDo = () => {
@@ -29,7 +31,12 @@ export const Todos = () => {
       {todos.map((todo) => {
         return <ToDo key={todo.id} todo={todo} />;
       })}
-      <button onClick={() => handleAddTodo()}>Add To Do</button>
+      <input
+        type="text"
+        value={newToDo}
+        onChange={(e) => setNewToDo(e.target.value)}
+      />
+      <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
       <button onClick={() => removeLastToDo()}>Remove To Do</button>
     </div>
   );

@@ -42,6 +42,10 @@ export const Todos = () => {
   );
 };
 
-export const ToDo = ({ todo }: any) => {
+interface ToDoItem {
+  id: string;
+  title: string;
+}
+export const ToDo = ({ todo }: { todo: ToDoItem }) => {
   return <div className="text-white">{todo.title}</div>;
 };

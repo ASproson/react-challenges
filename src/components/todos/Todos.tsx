@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToDoInput } from './ToDoInput';
 import 'react-toastify/dist/ReactToastify.css';
-const { v4: uuidv4 } = require('uuid');
+import { ToastContainer, toast } from 'react-toastify';
+import { ShowCompletedToDos } from './ShowCompletedToDos';
+import { ToDoList } from './ToDoList';
 
+const { v4: uuidv4 } = require('uuid');
 const todoList = [
   {
     id: uuidv4(),
@@ -14,6 +18,11 @@ const todoList = [
     title: 'Task Two',
   },
 ];
+
+export interface ToDoItem {
+  id: string;
+  title: string;
+}
 
 export const Todos = () => {
   const [toDos, setToDos] = useState(todoList);
@@ -53,27 +62,17 @@ export const Todos = () => {
         <Link to={'/'}>Home</Link>
       </div>
 
-      {toDos.map((toDo) => {
-        return (
-          <ToDo
-            key={toDo.id}
-            toDo={toDo}
-            handleDeleteSpecificToDo={handleDeleteSpecificToDo}
-            handleCompletedToDo={handleCompletedToDo}
-          />
-        );
-      })}
-      <div className="flex">
-        <input
-          type="text"
-          value={newToDo}
-          className="text-black"
-          onChange={(e) => setNewToDo(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleAddToDo(newToDo)}
-        />
+      <ToDoList
+        toDos={toDos}
+        completeToDo={handleCompletedToDo}
+        deleteToDo={handleDeleteSpecificToDo}
+      />
 
-        <Button title="Add ToDo" onClick={() => handleAddToDo(newToDo)} />
-      </div>
+      <ToDoInput
+        newToDo={newToDo}
+        setNewToDo={setNewToDo}
+        handleAddToDo={handleAddToDo}
+      />
       <Button title="Remove Last ToDo" onClick={() => handleRemoveLastToDo()} />
 
       <Button
@@ -81,7 +80,9 @@ export const Todos = () => {
         onClick={() => setShowCompletedToDos(!showCompletedToDos)}
       />
 
-      {showCompletedToDos && <ShowCompleted completedToDos={completedToDos} />}
+      {showCompletedToDos && (
+        <ShowCompletedToDos completedToDos={completedToDos} />
+      )}
 
       <ToastContainer
         position="top-center"
@@ -92,61 +93,4 @@ export const Todos = () => {
       />
     </div>
   );
-};
-
-interface ToDoProps {
-  toDo: ToDoItem;
-  handleDeleteSpecificToDo: (id: string) => void;
-  handleCompletedToDo: (id: string) => void;
-}
-
-interface ToDoItem {
-  id: string;
-  title: string;
-}
-export const ToDo = ({
-  toDo,
-  handleDeleteSpecificToDo,
-  handleCompletedToDo,
-}: ToDoProps) => {
-  return (
-    <div className="flex">
-      <div className="text-white">{toDo.title}</div>
-      <button onClick={() => handleDeleteSpecificToDo(toDo.id)}>❌</button>
-      <button onClick={() => handleCompletedToDo(toDo.id)}>✔</button>
-    </div>
-  );
-};
-
-interface ShowCompletedProps {
-  completedToDos: ToDoItem[];
-}
-
-export const ShowCompleted = ({ completedToDos }: ShowCompletedProps) => {
-  return (
-    <div>
-      <h1 className="text-white text-2xl">Completed ToDos</h1>
-
-      {completedToDos?.map((completedToDo: ToDoItem) => {
-        return (
-          <CompletedToDoList
-            key={completedToDo.id}
-            completedToDo={completedToDo}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-export const CompletedToDoList = ({ completedToDo }: any) => {
-  return <div className="text-white">{completedToDo.title}</div>;
-};
-
-interface ButtonProps {
-  onClick: () => void;
-  title: string;
-}
-export const Button = ({ onClick, title }: ButtonProps) => {
-  return <button onClick={onClick}>{title}</button>;
 };

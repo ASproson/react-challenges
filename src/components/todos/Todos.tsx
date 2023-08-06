@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const { v4: uuidv4 } = require('uuid');
 
 const todoList = [
@@ -21,6 +23,7 @@ export const Todos = () => {
     if (!newToDo) return;
     const newTask = { id: uuidv4(), title: newToDo };
     setToDos((prev) => [...prev, newTask]);
+    notifySuccessfulToDoAddition(newTask.title);
     setNewToDo('');
   };
 
@@ -32,6 +35,9 @@ export const Todos = () => {
     const filteredToDos = toDos.filter((todo) => todo.id !== id);
     setToDos(filteredToDos);
   };
+
+  const notifySuccessfulToDoAddition = (newTask: string) =>
+    toast(`Todo: ${newTask} added!`);
 
   return (
     <div className="text-center text-white">
@@ -55,6 +61,12 @@ export const Todos = () => {
       />
       <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
       <button onClick={() => handleRemoveLastToDo()}>Remove To Do</button>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        closeOnClick
+        theme="dark"
+      />
     </div>
   );
 };
@@ -78,3 +90,4 @@ export const ToDo = ({ toDo, handleDeleteSpecificToDo }: ToDoProps) => {
 };
 
 // React toast
+// Completed list -- then show/hide toggle

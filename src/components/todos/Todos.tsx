@@ -18,6 +18,7 @@ const todoList = [
 export const Todos = () => {
   const [toDos, setToDos] = useState(todoList);
   const [newToDo, setNewToDo] = useState('');
+  const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);
 
   const handleAddTodo = (newToDo: string) => {
     if (!newToDo) return;
@@ -36,6 +37,12 @@ export const Todos = () => {
     setToDos(filteredToDos);
   };
 
+  const handleCompletedToDo = (id: string) => {
+    const completedToDo = toDos.filter((todo) => todo.id === id)[0];
+    handleDeleteSpecificToDo(id);
+    setCompletedToDos((prev) => [...prev, completedToDo]);
+  };
+
   const notifySuccessfulToDoAddition = (newTask: string) =>
     toast(`Todo: ${newTask} added!`);
 
@@ -51,6 +58,7 @@ export const Todos = () => {
             key={toDo.id}
             toDo={toDo}
             handleDeleteSpecificToDo={handleDeleteSpecificToDo}
+            handleCompletedToDo={handleCompletedToDo}
           />
         );
       })}
@@ -61,11 +69,22 @@ export const Todos = () => {
       />
       <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
       <button onClick={() => handleRemoveLastToDo()}>Remove To Do</button>
+
+      <h1 className="text-white text-2xl">Completed ToDos</h1>
+      {completedToDos?.map((completedToDo) => {
+        return (
+          <CompletedToDoList
+            key={completedToDo.id}
+            completedToDo={completedToDo}
+          />
+        );
+      })}
       <ToastContainer
         position="top-center"
         autoClose={1000}
         closeOnClick
         theme="dark"
+        limit={1}
       />
     </div>
   );
@@ -74,20 +93,29 @@ export const Todos = () => {
 interface ToDoProps {
   toDo: ToDoItem;
   handleDeleteSpecificToDo: (id: string) => void;
+  handleCompletedToDo: (id: string) => void;
 }
 
 interface ToDoItem {
   id: string;
   title: string;
 }
-export const ToDo = ({ toDo, handleDeleteSpecificToDo }: ToDoProps) => {
+export const ToDo = ({
+  toDo,
+  handleDeleteSpecificToDo,
+  handleCompletedToDo,
+}: ToDoProps) => {
   return (
     <div className="flex">
       <div className="text-white">{toDo.title}</div>
       <button onClick={() => handleDeleteSpecificToDo(toDo.id)}>❌</button>
+      <button onClick={() => handleCompletedToDo(toDo.id)}>✔</button>
     </div>
   );
 };
 
-// React toast
+export const CompletedToDoList = ({ completedToDo }: any) => {
+  return <div className="text-white">{completedToDo.title}</div>;
+};
+
 // Completed list -- then show/hide toggle

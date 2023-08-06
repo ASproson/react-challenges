@@ -69,7 +69,7 @@ export const Todos = () => {
           value={newToDo}
           className="text-black"
           onChange={(e) => setNewToDo(e.target.value)}
-          onKeyDown={(e) => (e.key === 'Enter' ? handleAddToDo(newToDo) : null)}
+          onKeyDown={(e) => e.key === 'Enter' && handleAddToDo(newToDo)}
         />
         <button className="pl-4" onClick={() => handleAddToDo(newToDo)}>
           Add To Do

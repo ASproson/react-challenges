@@ -81,20 +81,7 @@ export const Todos = () => {
         onClick={() => setShowCompletedToDos(!showCompletedToDos)}
       />
 
-      {showCompletedToDos && (
-        <div>
-          <h1 className="text-white text-2xl">Completed ToDos</h1>
-
-          {completedToDos?.map((completedToDo) => {
-            return (
-              <CompletedToDoList
-                key={completedToDo.id}
-                completedToDo={completedToDo}
-              />
-            );
-          })}
-        </div>
-      )}
+      {showCompletedToDos && <ShowCompleted completedToDos={completedToDos} />}
 
       <ToastContainer
         position="top-center"
@@ -127,6 +114,27 @@ export const ToDo = ({
       <div className="text-white">{toDo.title}</div>
       <button onClick={() => handleDeleteSpecificToDo(toDo.id)}>❌</button>
       <button onClick={() => handleCompletedToDo(toDo.id)}>✔</button>
+    </div>
+  );
+};
+
+interface ShowCompletedProps {
+  completedToDos: ToDoItem[];
+}
+
+export const ShowCompleted = ({ completedToDos }: ShowCompletedProps) => {
+  return (
+    <div>
+      <h1 className="text-white text-2xl">Completed ToDos</h1>
+
+      {completedToDos?.map((completedToDo: ToDoItem) => {
+        return (
+          <CompletedToDoList
+            key={completedToDo.id}
+            completedToDo={completedToDo}
+          />
+        );
+      })}
     </div>
   );
 };

@@ -45,7 +45,7 @@ export const Todos = () => {
   };
 
   const notifySuccessfulToDoAddition = (newTask: string) =>
-    toast(`Todo: ${newTask} added!`);
+    toast(`ToDo: ${newTask} added!`);
 
   return (
     <div className="text-center text-white">
@@ -139,5 +139,3 @@ export const ToDo = ({
 export const CompletedToDoList = ({ completedToDo }: any) => {
   return <div className="text-white">{completedToDo.title}</div>;
 };
-
-// Completed list -- then show/hide toggle

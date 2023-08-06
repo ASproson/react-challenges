@@ -27,6 +27,11 @@ export const Todos = () => {
     setTodos(todos.slice(0, todos.length - 1));
   };
 
+  const deleteSpecificToDo = (id: string) => {
+    const filteredToDos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredToDos);
+  };
+
   return (
     <div className="text-center text-white">
       <div>
@@ -34,7 +39,13 @@ export const Todos = () => {
       </div>
 
       {todos.map((todo) => {
-        return <ToDo key={todo.id} todo={todo} />;
+        return (
+          <ToDo
+            key={todo.id}
+            todo={todo}
+            deleteSpecificToDo={deleteSpecificToDo}
+          />
+        );
       })}
       <input
         type="text"
@@ -51,6 +62,13 @@ interface ToDoItem {
   id: string;
   title: string;
 }
-export const ToDo = ({ todo }: { todo: ToDoItem }) => {
-  return <div className="text-white">{todo.title}</div>;
+export const ToDo = ({ todo, deleteSpecificToDo }: any) => {
+  return (
+    <div className="flex">
+      <div className="text-white">{todo.title}</div>
+      <button onClick={() => deleteSpecificToDo(todo.id)}>❌</button>
+    </div>
+  );
 };
+
+// React toast

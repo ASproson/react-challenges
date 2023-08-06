@@ -1,3 +1,4 @@
+import { Button } from './Button';
 import { ToDoItem } from './Todos';
 
 interface ToDoProps {
@@ -10,8 +11,8 @@ export const ToDo = ({ toDo, deleteToDo, completeToDo }: ToDoProps) => {
   return (
     <div className="flex">
       <div className="text-white">{toDo.title}</div>
-      <button onClick={() => deleteToDo(toDo.id)}>❌</button>
-      <button onClick={() => completeToDo(toDo.id)}>✔</button>
+      <Button title="❌" onClick={() => deleteToDo(toDo.id)} />
+      <Button title="✔" onClick={() => completeToDo(toDo.id)} />
     </div>
   );
 };

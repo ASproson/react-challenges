@@ -14,22 +14,23 @@ const todoList = [
 ];
 
 export const Todos = () => {
-  const [todos, setTodos] = useState(todoList);
+  const [toDos, setToDos] = useState(todoList);
   const [newToDo, setNewToDo] = useState('');
 
   const handleAddTodo = (newToDo: string) => {
+    if (!newToDo) return;
     const newTask = { id: uuidv4(), title: newToDo };
-    setTodos((prev) => [...prev, newTask]);
+    setToDos((prev) => [...prev, newTask]);
     setNewToDo('');
   };
 
-  const removeLastToDo = () => {
-    setTodos(todos.slice(0, todos.length - 1));
+  const handleRemoveLastToDo = () => {
+    setToDos(toDos.slice(0, toDos.length - 1));
   };
 
-  const deleteSpecificToDo = (id: string) => {
-    const filteredToDos = todos.filter((todo) => todo.id !== id);
-    setTodos(filteredToDos);
+  const handleDeleteSpecificToDo = (id: string) => {
+    const filteredToDos = toDos.filter((todo) => todo.id !== id);
+    setToDos(filteredToDos);
   };
 
   return (
@@ -38,12 +39,12 @@ export const Todos = () => {
         <Link to={'/'}>Home</Link>
       </div>
 
-      {todos.map((todo) => {
+      {toDos.map((toDo) => {
         return (
           <ToDo
-            key={todo.id}
-            todo={todo}
-            deleteSpecificToDo={deleteSpecificToDo}
+            key={toDo.id}
+            toDo={toDo}
+            handleDeleteSpecificToDo={handleDeleteSpecificToDo}
           />
         );
       })}
@@ -53,20 +54,25 @@ export const Todos = () => {
         onChange={(e) => setNewToDo(e.target.value)}
       />
       <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
-      <button onClick={() => removeLastToDo()}>Remove To Do</button>
+      <button onClick={() => handleRemoveLastToDo()}>Remove To Do</button>
     </div>
   );
 };
+
+interface ToDoProps {
+  toDo: ToDoItem;
+  handleDeleteSpecificToDo: (id: string) => void;
+}
 
 interface ToDoItem {
   id: string;
   title: string;
 }
-export const ToDo = ({ todo, deleteSpecificToDo }: any) => {
+export const ToDo = ({ toDo, handleDeleteSpecificToDo }: ToDoProps) => {
   return (
     <div className="flex">
-      <div className="text-white">{todo.title}</div>
-      <button onClick={() => deleteSpecificToDo(todo.id)}>❌</button>
+      <div className="text-white">{toDo.title}</div>
+      <button onClick={() => handleDeleteSpecificToDo(toDo.id)}>❌</button>
     </div>
   );
 };

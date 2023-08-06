@@ -71,20 +71,15 @@ export const Todos = () => {
           onChange={(e) => setNewToDo(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleAddToDo(newToDo)}
         />
-        <button className="pl-4" onClick={() => handleAddToDo(newToDo)}>
-          Add To Do
-        </button>
-      </div>
-      <button className="block" onClick={() => handleRemoveLastToDo()}>
-        Remove Last ToDo
-      </button>
 
-      <button
-        className="block"
+        <Button title="Add ToDo" onClick={() => handleAddToDo(newToDo)} />
+      </div>
+      <Button title="Remove Last ToDo" onClick={() => handleRemoveLastToDo()} />
+
+      <Button
+        title="Show Completed ToDos"
         onClick={() => setShowCompletedToDos(!showCompletedToDos)}
-      >
-        Show Completed ToDos
-      </button>
+      />
 
       {showCompletedToDos && (
         <div>
@@ -138,4 +133,12 @@ export const ToDo = ({
 
 export const CompletedToDoList = ({ completedToDo }: any) => {
   return <div className="text-white">{completedToDo.title}</div>;
+};
+
+interface ButtonProps {
+  onClick: () => void;
+  title: string;
+}
+export const Button = ({ onClick, title }: ButtonProps) => {
+  return <button onClick={onClick}>{title}</button>;
 };

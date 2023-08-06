@@ -21,7 +21,7 @@ export const Todos = () => {
   const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);
   const [showCompletedToDos, setShowCompletedToDos] = useState(false);
 
-  const handleAddTodo = (newToDo: string) => {
+  const handleAddToDo = (newToDo: string) => {
     if (!newToDo) return;
     const newTask = { id: uuidv4(), title: newToDo };
     setToDos((prev) => [...prev, newTask]);
@@ -63,15 +63,26 @@ export const Todos = () => {
           />
         );
       })}
-      <input
-        type="text"
-        value={newToDo}
-        onChange={(e) => setNewToDo(e.target.value)}
-      />
-      <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
-      <button onClick={() => handleRemoveLastToDo()}>Remove To Do</button>
+      <div className="flex">
+        <input
+          type="text"
+          value={newToDo}
+          className="text-black"
+          onChange={(e) => setNewToDo(e.target.value)}
+          onKeyDown={(e) => (e.key === 'Enter' ? handleAddToDo(newToDo) : null)}
+        />
+        <button className="pl-4" onClick={() => handleAddToDo(newToDo)}>
+          Add To Do
+        </button>
+      </div>
+      <button className="block" onClick={() => handleRemoveLastToDo()}>
+        Remove Last ToDo
+      </button>
 
-      <button onClick={() => setShowCompletedToDos(!showCompletedToDos)}>
+      <button
+        className="block"
+        onClick={() => setShowCompletedToDos(!showCompletedToDos)}
+      >
         Show Completed ToDos
       </button>
 

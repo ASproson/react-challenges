@@ -19,6 +19,7 @@ export const Todos = () => {
   const [toDos, setToDos] = useState(todoList);
   const [newToDo, setNewToDo] = useState('');
   const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);
+  const [showCompletedToDos, setShowCompletedToDos] = useState(false);
 
   const handleAddTodo = (newToDo: string) => {
     if (!newToDo) return;
@@ -70,15 +71,25 @@ export const Todos = () => {
       <button onClick={() => handleAddTodo(newToDo)}>Add To Do</button>
       <button onClick={() => handleRemoveLastToDo()}>Remove To Do</button>
 
-      <h1 className="text-white text-2xl">Completed ToDos</h1>
-      {completedToDos?.map((completedToDo) => {
-        return (
-          <CompletedToDoList
-            key={completedToDo.id}
-            completedToDo={completedToDo}
-          />
-        );
-      })}
+      <button onClick={() => setShowCompletedToDos(!showCompletedToDos)}>
+        Show Completed ToDos
+      </button>
+
+      {showCompletedToDos && (
+        <div>
+          <h1 className="text-white text-2xl">Completed ToDos</h1>
+
+          {completedToDos?.map((completedToDo) => {
+            return (
+              <CompletedToDoList
+                key={completedToDo.id}
+                completedToDo={completedToDo}
+              />
+            );
+          })}
+        </div>
+      )}
+
       <ToastContainer
         position="top-center"
         autoClose={1000}

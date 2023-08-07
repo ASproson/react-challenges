@@ -25,14 +25,14 @@ export interface ToDoItem {
   title: string;
 }
 
+const notifySuccessfulToDoAddition = (newTask: string) =>
+  toast(`ToDo: ${newTask} added!`);
+
 export const Todos = () => {
   const [toDos, setToDos] = useState(todoList);
   const [newToDo, setNewToDo] = useState('');
   const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);
   const [showCompletedToDos, setShowCompletedToDos] = useState(false);
-
-  const notifySuccessfulToDoAddition = (newTask: string) =>
-    toast(`ToDo: ${newTask} added!`);
 
   const handleAddToDo = useAddToDo({
     newToDo,

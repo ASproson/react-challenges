@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Button } from './Button';
-import { Link } from 'react-router-dom';
+import { ToDoList } from './ToDoList';
 import { ToDoInput } from './ToDoInput';
+import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAddToDo } from './hooks/useAddToDo';
 import { ToastContainer, toast } from 'react-toastify';
 import { ShowCompletedToDos } from './ShowCompletedToDos';
-import { ToDoList } from './ToDoList';
-import { useAddToDo } from './hooks/useAddToDo';
 
 const { v4: uuidv4 } = require('uuid');
 const todoList = [
@@ -37,8 +37,8 @@ export const Todos = () => {
   const handleAddToDo = useAddToDo({
     newToDo,
     setToDos,
-    notifySuccessfulToDoAddition,
     setNewToDo,
+    notifySuccessfulToDoAddition,
   });
 
   const handleRemoveLastToDo = () => {

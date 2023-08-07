@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { ShowCompletedToDos } from './ShowCompletedToDos';
 import { ToDoList } from './ToDoList';
+import { useAddToDo } from './hooks/useAddToDo';
 
 const { v4: uuidv4 } = require('uuid');
 const todoList = [
@@ -30,13 +31,15 @@ export const Todos = () => {
   const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);
   const [showCompletedToDos, setShowCompletedToDos] = useState(false);
 
-  const handleAddToDo = (newToDo: string) => {
-    if (!newToDo) return;
-    const newTask = { id: uuidv4(), title: newToDo };
-    setToDos((prev) => [...prev, newTask]);
-    notifySuccessfulToDoAddition(newTask.title);
-    setNewToDo('');
-  };
+  const notifySuccessfulToDoAddition = (newTask: string) =>
+    toast(`ToDo: ${newTask} added!`);
+
+  const handleAddToDo = useAddToDo({
+    newToDo,
+    setToDos,
+    notifySuccessfulToDoAddition,
+    setNewToDo,
+  });
 
   const handleRemoveLastToDo = () => {
     setToDos(toDos.slice(0, toDos.length - 1));
@@ -53,9 +56,6 @@ export const Todos = () => {
     setCompletedToDos((prev) => [...prev, completedToDo]);
   };
 
-  const notifySuccessfulToDoAddition = (newTask: string) =>
-    toast(`ToDo: ${newTask} added!`);
-
   return (
     <div className="text-center text-white">
       <div>
@@ -71,7 +71,7 @@ export const Todos = () => {
       <ToDoInput
         newToDo={newToDo}
         setNewToDo={setNewToDo}
-        handleAddToDo={handleAddToDo}
+        addToDo={handleAddToDo}
       />
       <Button title="Remove Last ToDo" onClick={() => handleRemoveLastToDo()} />
 

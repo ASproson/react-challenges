@@ -1,10 +1,6 @@
 import { useCallback } from 'react';
+import { ToDoItem } from '../Todos';
 const { v4: uuidv4 } = require('uuid');
-
-interface ToDoItem {
-  id: string;
-  title: string;
-}
 
 interface useAddToDoProps {
   newToDo: string;

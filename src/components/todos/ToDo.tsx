@@ -1,6 +1,6 @@
 import { Button } from './Button';
 import { ToDoItem } from './ToDos';
-import { faX, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
 
 interface ToDoProps {
@@ -15,7 +15,7 @@ export const ToDo = ({ toDo, deleteToDo, completeToDo }: ToDoProps) => {
       <div className="w-60">{toDo.title}</div>
       <div className="pl-2 space-x-2">
         <Button customStyling="x " onClick={() => deleteToDo(toDo.id)}>
-          <FontAwesomeIconWrapper icon={faX} color="red" />
+          <FontAwesomeIconWrapper icon={faXmark} color="red" />
         </Button>
         <Button customStyling="x " onClick={() => completeToDo(toDo.id)}>
           <FontAwesomeIconWrapper icon={faCheck} color="emerald" />

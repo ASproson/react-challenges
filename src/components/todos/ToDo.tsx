@@ -11,13 +11,13 @@ interface ToDoProps {
 
 export const ToDo = ({ toDo, deleteToDo, completeToDo }: ToDoProps) => {
   return (
-    <div className="flex">
+    <div className="flex justify-center">
       <div className="w-60">{toDo.title}</div>
       <div className="pl-2 space-x-2">
-        <Button className="x " onClick={() => deleteToDo(toDo.id)}>
+        <Button customStyling="x " onClick={() => deleteToDo(toDo.id)}>
           <FontAwesomeIconWrapper icon={faX} color="red" />
         </Button>
-        <Button className="x " onClick={() => completeToDo(toDo.id)}>
+        <Button customStyling="x " onClick={() => completeToDo(toDo.id)}>
           <FontAwesomeIconWrapper icon={faCheck} color="emerald" />
         </Button>
       </div>

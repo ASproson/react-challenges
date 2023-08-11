@@ -1,15 +1,21 @@
+import clsx from 'clsx';
+import { ReactNode } from 'react';
+
 interface ButtonProps {
   onClick: () => void;
-  title: string;
+  className?: string;
+  children: ReactNode;
 }
 
-export const Button = ({ onClick, title }: ButtonProps) => {
+export const Button = ({ onClick, className, children }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className="border-[1.5px] px-2 border-black rounded-md"
+      className={clsx(
+        className ? '' : 'border-[1.5px] px-2 border-black rounded-md'
+      )}
     >
-      {title}
+      {children}
     </button>
   );
 };

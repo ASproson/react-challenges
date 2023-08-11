@@ -17,8 +17,8 @@ export const ToDo = ({
   deleteToDo,
   completeToDo,
 }: ToDoProps) => {
-  const [editedTitle, setEditedTitle] = useState(toDo.title);
   const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(toDo.title);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEditedTitle(event.target.value);

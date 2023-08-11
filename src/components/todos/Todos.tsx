@@ -35,7 +35,7 @@ export const ToDos = () => {
     setToDos(filteredToDos);
   };
 
-  const handleCompletedToDo = (id: string) => {
+  const handleMarkToDoCompleted = (id: string) => {
     const completedToDo = toDos.filter((todo) => todo.id === id)[0];
     handleDeleteSpecificToDo(id);
     setCompletedToDos((prev) => [...prev, completedToDo]);
@@ -49,7 +49,7 @@ export const ToDos = () => {
 
       <ToDoList
         toDos={toDos}
-        completeToDo={handleCompletedToDo}
+        completeToDo={handleMarkToDoCompleted}
         deleteToDo={handleDeleteSpecificToDo}
       />
 

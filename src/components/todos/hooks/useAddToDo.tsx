@@ -1,19 +1,22 @@
 import { useCallback } from 'react';
 import { ToDoItem } from '../Todos';
+import { toast } from 'react-toastify';
+
 const { v4: uuidv4 } = require('uuid');
 
 interface useAddToDoProps {
   newToDo: string;
   setNewToDo: React.Dispatch<React.SetStateAction<string>>;
-  notifySuccessfulToDoAddition: (newTask: string) => void;
   setToDos: React.Dispatch<React.SetStateAction<ToDoItem[]>>;
 }
 
+const notifySuccessfulToDoAddition = (newTask: string) =>
+  toast(`ToDo: ${newTask} added!`);
+
 export const useAddToDo = ({
-  setToDos,
-  notifySuccessfulToDoAddition,
-  setNewToDo,
   newToDo,
+  setToDos,
+  setNewToDo,
 }: useAddToDoProps) => {
   return useCallback(() => {
     if (!newToDo) return;
@@ -21,5 +24,5 @@ export const useAddToDo = ({
     setToDos((prev) => [...prev, newTask]);
     notifySuccessfulToDoAddition(newTask.title);
     setNewToDo('');
-  }, [setToDos, notifySuccessfulToDoAddition, setNewToDo, newToDo]);
+  }, [setToDos, setNewToDo, newToDo]);
 };

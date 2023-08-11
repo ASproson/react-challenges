@@ -13,7 +13,7 @@ export const ToDoList = ({
   completeToDo,
 }: ToDoListProps) => {
   return (
-    <>
+    <div className="pt-4">
       {toDos.map((toDo: ToDoItem) => {
         return (
           <ToDo
@@ -24,6 +24,6 @@ export const ToDoList = ({
           />
         );
       })}
-    </>
+    </div>
   );
 };

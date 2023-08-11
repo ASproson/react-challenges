@@ -1,5 +1,5 @@
 import { Button } from './Button';
-import { ToDoItem } from './Todos';
+import { ToDoItem } from './ToDos';
 import { faX, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
 

@@ -14,7 +14,7 @@ export interface ToDoItem {
   title: string;
 }
 
-export const Todos = () => {
+export const ToDos = () => {
   const [toDos, setToDos] = useState(todoList);
   const [newToDo, setNewToDo] = useState('');
   const [completedToDos, setCompletedToDos] = useState<ToDoItem[]>([]);

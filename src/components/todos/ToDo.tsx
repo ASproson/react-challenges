@@ -1,18 +1,49 @@
+import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDos';
-import { faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
+import { faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface ToDoProps {
   toDo: ToDoItem;
   deleteToDo: (id: string) => void;
   completeToDo: (id: string) => void;
+  updateToDo: (id: string, newTitle: string) => void;
 }
 
-export const ToDo = ({ toDo, deleteToDo, completeToDo }: ToDoProps) => {
+export const ToDo = ({
+  toDo,
+  updateToDo,
+  deleteToDo,
+  completeToDo,
+}: ToDoProps) => {
+  const [editedTitle, setEditedTitle] = useState(toDo.title);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedTitle(event.target.value);
+  };
+
+  const handleBlur = () => {
+    setIsEditing(false);
+    updateToDo(toDo.id, editedTitle);
+  };
+
   return (
     <div className="flex justify-center">
-      <div className="w-60">{toDo.title}</div>
+      <div className="w-60">
+        {isEditing ? (
+          <input
+            type="text"
+            value={editedTitle}
+            onChange={handleTitleChange}
+            onBlur={handleBlur}
+            className="text-center"
+          />
+        ) : (
+          <div onClick={() => setIsEditing(true)}>{editedTitle}</div>
+        )}
+      </div>
       <div className="pl-2 space-x-2">
         <Button customStyling="x " onClick={() => deleteToDo(toDo.id)}>
           <FontAwesomeIconWrapper icon={faXmark} color="red" />

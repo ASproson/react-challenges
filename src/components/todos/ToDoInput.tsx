@@ -24,17 +24,23 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
   }
 
   return (
-    <div className="flex">
+    <div className="pt-4">
       <input
         type="text"
         value={newToDo}
-        className="text-black border-[1.5px] border-black rounded-md w-60"
+        className="text-black border-2 border-gray-300 rounded-md w-60 p-1"
         placeholder={placeholder + '...'}
         onChange={(e) => setNewToDo(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}
       />
-
-      <Button onClick={() => addToDo(newToDo)}>Add ToDo</Button>
+      <div>
+        <Button
+          onClick={() => addToDo(newToDo)}
+          customStyling="bg-blue-400 px-2 p-1 rounded-md text-gray-200"
+        >
+          Add ToDo
+        </Button>
+      </div>
     </div>
   );
 };

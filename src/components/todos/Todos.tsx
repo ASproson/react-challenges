@@ -57,7 +57,7 @@ export const Todos = () => {
   };
 
   return (
-    <div className="text-center text-white">
+    <div className="text-center">
       <div>
         <Link to={'/'}>Home</Link>
       </div>

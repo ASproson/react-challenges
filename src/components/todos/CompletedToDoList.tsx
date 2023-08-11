@@ -7,5 +7,5 @@ interface CompletedToDoListProps {
 export const CompletedToDoList = ({
   completedToDo,
 }: CompletedToDoListProps) => {
-  return <div className="text-white">{completedToDo.title}</div>;
+  return <div>{completedToDo.title}</div>;
 };

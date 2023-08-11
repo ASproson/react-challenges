@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from './Button';
 import { PLACEHOLDER_SUGGESTIONS } from './lib/PLACEHOLDER_SUGGESTIONS';
 
 interface ToDoInputProps {
@@ -33,14 +32,6 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
         onChange={(e) => setNewToDo(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}
       />
-      <div>
-        <Button
-          onClick={() => addToDo(newToDo)}
-          customStyling="bg-blue-400 px-2 p-1 rounded-md text-gray-200"
-        >
-          Add ToDo
-        </Button>
-      </div>
     </div>
   );
 };

@@ -1,19 +1,12 @@
 import { useState } from 'react';
 import { Button } from './Button';
+import { PLACEHOLDER_SUGGESTIONS } from './lib/PLACEHOLDER_SUGGESTIONS';
 
 interface ToDoInputProps {
   newToDo: string;
   setNewToDo: (e: string) => void;
   addToDo: (e: string) => void;
 }
-
-const PLACEHOLDER_SUGGESTIONS = [
-  'Pick up dry cleaning',
-  'Study React',
-  'Fight with MegaLinter',
-  'Submit report',
-  'Pick up {...children}',
-];
 
 const randomSuggestion = () => {
   return PLACEHOLDER_SUGGESTIONS[
@@ -36,7 +29,7 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
         type="text"
         value={newToDo}
         className="text-black border-[1.5px] border-black rounded-md"
-        placeholder={placeholder}
+        placeholder={placeholder + '...'}
         onChange={(e) => setNewToDo(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}
       />

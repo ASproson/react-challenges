@@ -5,28 +5,14 @@ import { Link } from 'react-router-dom';
 import { ToDoActions } from './ToDoActions';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAddToDo } from './hooks/useAddToDo';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { todoList } from './lib/PLACEHOLDER_TODOS';
 import { ShowCompletedToDos } from './ShowCompletedToDos';
-
-const { v4: uuidv4 } = require('uuid');
-const todoList = [
-  {
-    id: uuidv4(),
-    title: 'Task One',
-  },
-  {
-    id: uuidv4(),
-    title: 'Task Two',
-  },
-];
 
 export interface ToDoItem {
   id: string;
   title: string;
 }
-
-const notifySuccessfulToDoAddition = (newTask: string) =>
-  toast(`ToDo: ${newTask} added!`);
 
 export const Todos = () => {
   const [toDos, setToDos] = useState(todoList);
@@ -38,7 +24,6 @@ export const Todos = () => {
     newToDo,
     setToDos,
     setNewToDo,
-    notifySuccessfulToDoAddition,
   });
 
   const handleRemoveLastToDo = () => {

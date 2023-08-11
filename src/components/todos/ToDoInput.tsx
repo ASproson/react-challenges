@@ -34,7 +34,7 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}
       />
 
-      <Button title="Add ToDo" onClick={() => addToDo(newToDo)} />
+      <Button onClick={() => addToDo(newToDo)}>Add ToDo</Button>
     </div>
   );
 };

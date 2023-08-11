@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from './Button';
 import { ToDoItem } from './Todos';
 import { faX, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
 
 interface ToDoProps {
   toDo: ToDoItem;
@@ -9,18 +9,18 @@ interface ToDoProps {
   completeToDo: (id: string) => void;
 }
 
-<FontAwesomeIcon icon={faX} />;
-
 export const ToDo = ({ toDo, deleteToDo, completeToDo }: ToDoProps) => {
   return (
     <div className="flex">
-      <div>{toDo.title}</div>
-      <Button onClick={() => deleteToDo(toDo.id)}>
-        <FontAwesomeIcon icon={faX} className="text-red-500" />
-      </Button>
-      <Button onClick={() => completeToDo(toDo.id)}>
-        <FontAwesomeIcon icon={faCheck} className="text-emerald-500" />
-      </Button>
+      <div className="w-60">{toDo.title}</div>
+      <div className="pl-2 space-x-2">
+        <Button className="x " onClick={() => deleteToDo(toDo.id)}>
+          <FontAwesomeIconWrapper icon={faX} color="red" />
+        </Button>
+        <Button className="x " onClick={() => completeToDo(toDo.id)}>
+          <FontAwesomeIconWrapper icon={faCheck} color="emerald" />
+        </Button>
+      </div>
     </div>
   );
 };

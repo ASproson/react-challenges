@@ -73,12 +73,12 @@ export const Todos = () => {
         setNewToDo={setNewToDo}
         addToDo={handleAddToDo}
       />
-      <Button title="Remove Last ToDo" onClick={() => handleRemoveLastToDo()} />
 
-      <Button
-        title="Show Completed ToDos"
-        onClick={() => setShowCompletedToDos(!showCompletedToDos)}
-      />
+      <Button onClick={() => handleRemoveLastToDo()}>Remove Last ToDo</Button>
+
+      <Button onClick={() => setShowCompletedToDos(!showCompletedToDos)}>
+        Show Completed ToDos
+      </Button>
 
       {showCompletedToDos && (
         <ShowCompletedToDos completedToDos={completedToDos} />

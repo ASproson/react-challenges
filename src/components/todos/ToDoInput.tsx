@@ -28,7 +28,7 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
       <input
         type="text"
         value={newToDo}
-        className="text-black border-[1.5px] border-black rounded-md"
+        className="text-black border-[1.5px] border-black rounded-md w-60"
         placeholder={placeholder + '...'}
         onChange={(e) => setNewToDo(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}
@@ -38,5 +38,3 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
     </div>
   );
 };
-
-// Animate placeholder text with array of suggestions?

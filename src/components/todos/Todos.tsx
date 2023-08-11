@@ -26,6 +26,12 @@ export const ToDos = () => {
     setNewToDo,
   });
 
+  const handleUpdateToDoTitle = (id: string, newTitle: string) => {
+    setToDos((prev) =>
+      prev.map((toDo) => (toDo.id === id ? { ...toDo, title: newTitle } : toDo))
+    );
+  };
+
   const handleRemoveLastToDo = () => {
     setToDos(toDos.slice(0, toDos.length - 1));
   };
@@ -51,6 +57,7 @@ export const ToDos = () => {
         toDos={toDos}
         completeToDo={handleMarkToDoCompleted}
         deleteToDo={handleDeleteSpecificToDo}
+        updateToDo={handleUpdateToDoTitle}
       />
 
       <ToDoInput
@@ -82,5 +89,4 @@ export const ToDos = () => {
   );
 };
 
-// Allow editing of current ToDos, ReactEasyEdit?
 // Turn Button into a multiple export, i.e multiple button exports with x styling

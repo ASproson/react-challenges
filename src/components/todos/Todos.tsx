@@ -74,9 +74,17 @@ export const Todos = () => {
         addToDo={handleAddToDo}
       />
 
-      <Button onClick={() => handleRemoveLastToDo()}>Remove Last ToDo</Button>
+      <Button
+        customStyling="rounded-md bg-red-400 px-2 p-1 text-gray-200"
+        onClick={() => handleRemoveLastToDo()}
+      >
+        Remove Last ToDo
+      </Button>
 
-      <Button onClick={() => setShowCompletedToDos(!showCompletedToDos)}>
+      <Button
+        customStyling="rounded-md bg-emerald-400 px-2 p-1 text-gray-200"
+        onClick={() => setShowCompletedToDos(!showCompletedToDos)}
+      >
         Show Completed ToDos
       </Button>
 
@@ -85,7 +93,7 @@ export const Todos = () => {
       )}
 
       <ToastContainer
-        position="top-center"
+        position="bottom-center"
         autoClose={1000}
         closeOnClick
         theme="dark"

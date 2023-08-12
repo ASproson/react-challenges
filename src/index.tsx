@@ -1,21 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ToDos } from './components/todos/ToDos';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/todos',
-    element: <ToDos />,
-  },
-]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,7 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
 

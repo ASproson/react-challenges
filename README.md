@@ -10,10 +10,10 @@ This repository contains a number of challenges in relation to React
 ## Tech Used
 
 - React
+- Clsx
 - UUID
 - React Router
 - Tailwind CSS
 - React Toastify
-- Clsx
 - React Router DOM
 - FontAwesomeIcons

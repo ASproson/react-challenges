@@ -15,3 +15,4 @@ This repository contains a number of challenges in relation to React
 - Tailwind CSS
 - React Toastify
 - React Router DOM
+- Clsx

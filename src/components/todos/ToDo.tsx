@@ -55,10 +55,10 @@ export const ToDo = ({
         )}
       </div>
       <div className="pl-2 space-x-2">
-        <Button customStyling="x " onClick={() => deleteToDo(toDo.id)}>
+        <Button defaultStyling={false} onClick={() => deleteToDo(toDo.id)}>
           <FontAwesomeIcon icon={faXmark} className="text-red-500 font-bold" />
         </Button>
-        <Button customStyling="x " onClick={() => completeToDo(toDo.id)}>
+        <Button defaultStyling={false} onClick={() => completeToDo(toDo.id)}>
           <FontAwesomeIcon
             icon={faCheck}
             className="text-emerald-500 font-bold"

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDos';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
 import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface ToDoProps {
   toDo: ToDoItem;

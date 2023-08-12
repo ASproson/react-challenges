@@ -88,5 +88,3 @@ export const ToDos = () => {
     </div>
   );
 };
-
-// Turn Button into a multiple export, i.e multiple button exports with x styling

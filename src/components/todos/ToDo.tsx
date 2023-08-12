@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDos';
 import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
-import { faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface ToDoProps {
   toDo: ToDoItem;
@@ -31,17 +32,27 @@ export const ToDo = ({
 
   return (
     <div className="flex justify-center">
-      <div className="w-60">
+      <div className="w-60 hover:italic cursor-text">
         {isEditing ? (
           <input
             type="text"
             value={editedTitle}
             onChange={handleTitleChange}
-            onBlur={handleBlur}
+            onBlur={() => {
+              handleBlur();
+              setIsEditing(false);
+            }}
             className="text-center"
           />
         ) : (
-          <div onClick={() => setIsEditing(true)}>{editedTitle}</div>
+          <div onClick={() => setIsEditing(true)}>
+            <span>{editedTitle}</span>
+            {!isEditing && (
+              <button className="float-right">
+                <FontAwesomeIcon icon={faPencil} className="text-xs pt-[6px]" />
+              </button>
+            )}
+          </div>
         )}
       </div>
       <div className="pl-2 space-x-2">

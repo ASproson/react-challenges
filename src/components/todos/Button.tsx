@@ -3,18 +3,23 @@ import { ReactNode } from 'react';
 
 interface ButtonProps {
   onClick: () => void;
-  customStyling?: string;
   children: ReactNode;
+  customStyling?: string;
+  defaultStyling?: boolean;
 }
 
-export const Button = ({ onClick, customStyling, children }: ButtonProps) => {
+export const Button = ({
+  onClick,
+  defaultStyling,
+  customStyling,
+  children,
+}: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       className={clsx(
-        customStyling
-          ? `${customStyling}`
-          : 'border-[1.5px] px-2 p-1 border-black rounded-md'
+        defaultStyling && 'border-[1.5px] px-2 p-1 border-black rounded-md',
+        customStyling && `${customStyling}`
       )}
     >
       {children}

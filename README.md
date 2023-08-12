@@ -16,3 +16,4 @@ This repository contains a number of challenges in relation to React
 - React Toastify
 - React Router DOM
 - Clsx
+- FontAwesomeIcons

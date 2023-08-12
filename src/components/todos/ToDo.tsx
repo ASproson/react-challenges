@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDos';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FontAwesomeIconWrapper } from './FontAwesomeIconWrapper';
 import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
 
 interface ToDoProps {
@@ -57,10 +56,13 @@ export const ToDo = ({
       </div>
       <div className="pl-2 space-x-2">
         <Button customStyling="x " onClick={() => deleteToDo(toDo.id)}>
-          <FontAwesomeIconWrapper icon={faXmark} color="red" />
+          <FontAwesomeIcon icon={faXmark} className="text-red-500 font-bold" />
         </Button>
         <Button customStyling="x " onClick={() => completeToDo(toDo.id)}>
-          <FontAwesomeIconWrapper icon={faCheck} color="emerald" />
+          <FontAwesomeIcon
+            icon={faCheck}
+            className="text-emerald-500 font-bold"
+          />
         </Button>
       </div>
     </div>

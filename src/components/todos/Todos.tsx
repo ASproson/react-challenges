@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ToDoList } from './ToDoList';
 import { ToDoInput } from './ToDoInput';
-import { Link } from 'react-router-dom';
 import { ToDoActions } from './ToDoActions';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAddToDo } from './hooks/useAddToDo';
@@ -49,10 +48,6 @@ export const ToDos = () => {
 
   return (
     <div className="text-center">
-      <div>
-        <Link to={'/'}>Home</Link>
-      </div>
-
       <ToDoList
         toDos={toDos}
         completeToDo={handleMarkToDoCompleted}

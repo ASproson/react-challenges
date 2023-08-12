@@ -14,6 +14,6 @@ This repository contains a number of challenges in relation to React
 - React Router
 - Tailwind CSS
 - React Toastify
-- React Router DOM
 - Clsx
+- React Router DOM
 - FontAwesomeIcons

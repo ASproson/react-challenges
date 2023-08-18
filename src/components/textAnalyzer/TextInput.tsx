@@ -3,37 +3,25 @@ import { Button } from '../todos/Button';
 
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
-  const [textLength, setTextLength] = useState(0);
-  const [textWordsCount, setTextWordsCount] = useState(0);
-  const [textCharactersCount, setTextCharactersCount] = useState(0);
 
   const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
-
     setTextInput(newText);
-    setTextLength(newText.length);
-
-    if (newText.trim() === '') {
-      setTextWordsCount(0);
-      setTextCharactersCount(0);
-    } else {
-      setTextWordsCount(newText.trim().split(/\s+/).length);
-      setTextCharactersCount(newText.replace(/\s+/g, '').length);
-    }
   };
 
   const handleTextAreaReset = () => {
     setTextInput('');
-    setTextLength(0);
-    setTextWordsCount(0);
-    setTextCharactersCount(0);
   };
+
+  const words = textInput.length ? textInput.trim().split(/\s+/) : '';
+  const wordCount = words.length;
+  const charCount = textInput.replace(/\s+/g, '').length;
 
   return (
     <div className="App">
-      <p>Text length: {textLength}</p>
-      <p>Word count: {textWordsCount}</p>
-      <p>Character count: {textCharactersCount}</p>
+      <p>Text length: {textInput.length}</p>
+      <p>Word count: {wordCount}</p>
+      <p>Character count: {charCount}</p>
 
       <div className="pt-4 pb-4">
         <textarea

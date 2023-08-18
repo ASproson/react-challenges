@@ -8,10 +8,18 @@ export const TextInput = () => {
   const [textCharactersCount, setTextCharactersCount] = useState(0);
 
   const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextInput(e.target.value);
-    setTextLength(textInput.length + 1);
-    setTextWordsCount(textInput.split(' ').length);
-    setTextCharactersCount(textInput.split(' ').join('').length + 1);
+    const newText = e.target.value;
+
+    setTextInput(newText);
+    setTextLength(newText.length);
+
+    if (newText.trim() === '') {
+      setTextWordsCount(0);
+      setTextCharactersCount(0);
+    } else {
+      setTextWordsCount(newText.trim().split(/\s+/).length);
+      setTextCharactersCount(newText.replace(/\s+/g, '').length);
+    }
   };
 
   const handleTextAreaReset = () => {

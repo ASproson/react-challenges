@@ -18,16 +18,16 @@ const TextInput = () => {
 
   const handleTextInput = (e: any) => {
     setTextInput(e.target.value);
-    setTextLength(textInput.length);
+    setTextLength(textInput.length + 1);
     setTextWordsCount(textInput.split(' ').length);
-    setTextCharactersCount(textInput.split('').length);
+    setTextCharactersCount(textInput.split(' ').join('').length + 1);
   };
 
   return (
     <div className="App">
-      <p>{textLength}</p>
-      <p>{textWordsCount}</p>
-      <p>{textCharactersCount}</p>
+      <p>Text length: {textLength}</p>
+      <p>Word count: {textWordsCount}</p>
+      <p>Character count: {textCharactersCount}</p>
 
       <textarea
         onChange={(e) => handleTextInput(e)}
@@ -36,3 +36,5 @@ const TextInput = () => {
     </div>
   );
 };
+
+// Add clear text area button

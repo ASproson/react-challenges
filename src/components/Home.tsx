@@ -1,3 +1,5 @@
+import { Title } from './Title';
+
 export const Home = () => {
-  return <div className="App text-3xl font-bold">Hello world</div>;
+  return <Title titleText="React Challenges" />;
 };

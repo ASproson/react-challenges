@@ -1,3 +1,9 @@
+import { Title } from '../Title';
+
 export const TextAnalyzer = () => {
-  return <div>Text analyzer</div>;
+  return (
+    <>
+      <Title titleText="Text Analyzer" />
+    </>
+  );
 };

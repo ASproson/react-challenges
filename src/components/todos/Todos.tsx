@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Title } from '../Title';
 import { ToDoList } from './ToDoList';
 import { ToDoInput } from './ToDoInput';
 import { ToDoActions } from './ToDoActions';
@@ -47,39 +48,42 @@ export const ToDos = () => {
   };
 
   return (
-    <div className="text-center">
-      <ToDoList
-        toDos={toDos}
-        completeToDo={handleMarkToDoCompleted}
-        deleteToDo={handleDeleteSpecificToDo}
-        updateToDo={handleUpdateToDoTitle}
-      />
+    <>
+      <Title titleText="ToDo List" />
+      <div className="text-center">
+        <ToDoList
+          toDos={toDos}
+          completeToDo={handleMarkToDoCompleted}
+          deleteToDo={handleDeleteSpecificToDo}
+          updateToDo={handleUpdateToDoTitle}
+        />
 
-      <ToDoInput
-        newToDo={newToDo}
-        setNewToDo={setNewToDo}
-        addToDo={handleAddToDo}
-      />
+        <ToDoInput
+          newToDo={newToDo}
+          setNewToDo={setNewToDo}
+          addToDo={handleAddToDo}
+        />
 
-      <ToDoActions
-        showCompletedToDos={showCompletedToDos}
-        newToDo={newToDo}
-        addToDo={handleAddToDo}
-        handleRemoveLastToDo={handleRemoveLastToDo}
-        setShowCompletedToDos={setShowCompletedToDos}
-      />
+        <ToDoActions
+          showCompletedToDos={showCompletedToDos}
+          newToDo={newToDo}
+          addToDo={handleAddToDo}
+          handleRemoveLastToDo={handleRemoveLastToDo}
+          setShowCompletedToDos={setShowCompletedToDos}
+        />
 
-      {showCompletedToDos && (
-        <ShowCompletedToDos completedToDos={completedToDos} />
-      )}
+        {showCompletedToDos && (
+          <ShowCompletedToDos completedToDos={completedToDos} />
+        )}
 
-      <ToastContainer
-        position="bottom-center"
-        autoClose={1000}
-        closeOnClick
-        theme="dark"
-        limit={1}
-      />
-    </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={1000}
+          closeOnClick
+          theme="dark"
+          limit={1}
+        />
+      </div>
+    </>
   );
 };

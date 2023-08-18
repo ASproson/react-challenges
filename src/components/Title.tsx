@@ -3,5 +3,5 @@ interface TitleProps {
 }
 
 export const Title = ({ titleText }: TitleProps) => {
-  return <header>{titleText}</header>;
+  return <header className="App text-3xl font-bold">{titleText}</header>;
 };

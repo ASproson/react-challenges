@@ -41,3 +41,6 @@ export const TextInput = () => {
     </div>
   );
 };
+
+// textWordsCount accepts empty spaces as words
+// Probably a better way to track all of the state more effectively

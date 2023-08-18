@@ -29,6 +29,7 @@ export const TextInput = () => {
 
       <div className="pt-4 pb-4">
         <textarea
+          id="textArea"
           onChange={(e) => handleTextInput(e)}
           value={textInput}
           className="border-[1.5px] rounded-lg p-2 border-black w-72 h-40"

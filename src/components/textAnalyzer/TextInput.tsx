@@ -27,13 +27,17 @@ export const TextInput = () => {
       <p>Word count: {textWordsCount}</p>
       <p>Character count: {textCharactersCount}</p>
 
-      <textarea
-        onChange={(e) => handleTextInput(e)}
-        value={textInput}
-        className="border-2 border-black"
-      />
+      <div className="pt-4 pb-4">
+        <textarea
+          onChange={(e) => handleTextInput(e)}
+          value={textInput}
+          className="border-[1.5px] rounded-lg p-2 border-black w-72 h-40"
+        />
+      </div>
 
-      <Button onClick={handleTextAreaReset}>Clear Text Area</Button>
+      <Button onClick={handleTextAreaReset} defaultStyling>
+        Clear Text Area
+      </Button>
     </div>
   );
 };

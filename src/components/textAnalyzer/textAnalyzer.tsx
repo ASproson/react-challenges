@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Title } from '../Title';
+import { Button } from '../todos/Button';
 
 export const TextAnalyzer = () => {
   return (
@@ -42,7 +43,7 @@ const TextInput = () => {
         className="border-2 border-black"
       />
 
-      <button onClick={handleTextAreaReset}>Clear text area</button>
+      <Button onClick={handleTextAreaReset}>Clear Text Area</Button>
     </div>
   );
 };

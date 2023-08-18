@@ -1,3 +1,3 @@
-export const textAnalyzer = () => {
+export const TextAnalyzer = () => {
   return <div>Text analyzer</div>;
 };

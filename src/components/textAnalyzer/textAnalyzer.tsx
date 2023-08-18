@@ -16,7 +16,7 @@ const TextInput = () => {
   const [textWordsCount, setTextWordsCount] = useState(0);
   const [textCharactersCount, setTextCharactersCount] = useState(0);
 
-  const handleTextInput = (e: any) => {
+  const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextInput(e.target.value);
     setTextLength(textInput.length + 1);
     setTextWordsCount(textInput.split(' ').length);

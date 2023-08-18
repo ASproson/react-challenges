@@ -23,6 +23,13 @@ const TextInput = () => {
     setTextCharactersCount(textInput.split(' ').join('').length + 1);
   };
 
+  const handleTextAreaReset = () => {
+    setTextInput('');
+    setTextLength(0);
+    setTextWordsCount(0);
+    setTextCharactersCount(0);
+  };
+
   return (
     <div className="App">
       <p>Text length: {textLength}</p>
@@ -34,8 +41,8 @@ const TextInput = () => {
         value={textInput}
         className="border-2 border-black"
       />
+
+      <button onClick={handleTextAreaReset}>Clear text area</button>
     </div>
   );
 };
-
-// Add clear text area button

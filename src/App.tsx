@@ -3,7 +3,7 @@ import { Home } from './components/Home';
 import { ToDos } from './components/todos/ToDos';
 import { NavBar } from './components/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { TextAnalyzer } from './components/textAnalyzer/textAnalyzer';
+import { TextAnalyzer } from './components/textAnalyzer/TextAnalyzer';
 
 function App() {
   return (

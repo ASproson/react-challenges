@@ -33,7 +33,7 @@ const TextInput = () => {
         onChange={(e) => handleTextInput(e)}
         value={textInput}
         className="border-2 border-black"
-      ></textarea>
+      />
     </div>
   );
 };

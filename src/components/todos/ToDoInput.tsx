@@ -27,7 +27,7 @@ export const ToDoInput = ({ newToDo, setNewToDo, addToDo }: ToDoInputProps) => {
       <input
         type="text"
         value={newToDo}
-        className="w-72 p-1 border-2 border-gray-300 focus:border-gray-400  focus:outline-none focus:ring-0 rounded-md"
+        className="w-72 p-1 border-2 border-gray-300 focus:border-gray-400 focus:outline-none focus:ring-0 rounded-md"
         placeholder={placeholder + '...'}
         onChange={(e) => setNewToDo(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && addToDo(newToDo)}

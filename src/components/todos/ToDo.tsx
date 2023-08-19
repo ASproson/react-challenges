@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDosRoot';
+import { EditToDoInput } from './EditToDoInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
-import { EditToDoInput } from './EditToDoInput';
 
 interface ToDoProps {
   toDo: ToDoItem;
@@ -41,14 +41,11 @@ export const ToDo = ({
             changeTitle={handleTitleChange}
           />
         ) : (
-          <div onClick={() => setIsEditing(true)}>
-            <span>{editedTitle}</span>
-            {!isEditing && (
-              <button className="float-right">
-                <FontAwesomeIcon icon={faPencil} className="text-xs pt-[6px]" />
-              </button>
-            )}
-          </div>
+          <NotEditingToDo
+            setIsEditing={setIsEditing}
+            isEditing={isEditing}
+            currentTitle={editedTitle}
+          />
         )}
       </div>
       <div className="pl-2 space-x-2">
@@ -62,6 +59,29 @@ export const ToDo = ({
           />
         </Button>
       </div>
+    </div>
+  );
+};
+
+interface NotEditingToDo {
+  isEditing: boolean;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  currentTitle: string;
+}
+
+export const NotEditingToDo = ({
+  isEditing,
+  currentTitle,
+  setIsEditing,
+}: NotEditingToDo) => {
+  return (
+    <div onClick={() => setIsEditing(true)}>
+      <span>{currentTitle}</span>
+      {!isEditing && (
+        <button className="float-right">
+          <FontAwesomeIcon icon={faPencil} className="text-xs pt-[6px]" />
+        </button>
+      )}
     </div>
   );
 };

@@ -30,9 +30,21 @@ export const ToDoList = ({
             );
           })}
         </div>
-        <div className="mx-2 border-b-[1px] border-l-[1px] border-r-[1px] border-gray-400 bg-white h-2 rounded-sm"></div>
-        <div className="mx-4 border-b-[1px] border-l-[1px] border-r-[1px] border-gray-400 bg-white h-2 rounded-sm"></div>
+        <StackedCard margin={2} />
+        <StackedCard margin={4} />
       </div>
     </div>
+  );
+};
+
+interface StackedCardProps {
+  margin: number;
+}
+
+export const StackedCard = ({ margin }: StackedCardProps) => {
+  return (
+    <div
+      className={`mx-${margin} border-b-[1px] border-l-[1px] border-r-[1px] border-gray-400 bg-white h-2 rounded-sm`}
+    ></div>
   );
 };

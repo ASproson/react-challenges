@@ -16,18 +16,22 @@ export const ToDoList = ({
 }: ToDoListProps) => {
   return (
     <div className="py-4 flex justify-center">
-      <div className="py-4 w-2/5 rounded-sm border-[1px] border-gray-400 shadow-md shadow-gray-400">
-        {toDos.map((toDo: ToDoItem) => {
-          return (
-            <ToDo
-              key={toDo.id}
-              toDo={toDo}
-              updateToDo={updateToDo}
-              deleteToDo={deleteToDo}
-              completeToDo={completeToDo}
-            />
-          );
-        })}
+      <div className="w-2/5">
+        <div className="py-4 rounded-sm border-[1px] border-gray-400 shadow-md shadow-gray-400 relative">
+          {toDos.map((toDo: ToDoItem) => {
+            return (
+              <ToDo
+                key={toDo.id}
+                toDo={toDo}
+                updateToDo={updateToDo}
+                deleteToDo={deleteToDo}
+                completeToDo={completeToDo}
+              />
+            );
+          })}
+        </div>
+        <div className="mx-2 border-b-[1px] border-l-[1px] border-r-[1px] border-gray-400 bg-white h-2 rounded-sm"></div>
+        <div className="mx-4 border-b-[1px] border-l-[1px] border-r-[1px] border-gray-400 bg-white h-2 rounded-sm"></div>
       </div>
     </div>
   );

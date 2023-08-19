@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
-import { ToDoItem } from '../ToDos';
+import { ToDoItem } from '../ToDosRoot';
 
 const { v4: uuidv4 } = require('uuid');
 

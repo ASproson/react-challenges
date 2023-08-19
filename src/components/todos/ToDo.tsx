@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from './Button';
-import { ToDoItem } from './ToDos';
+import { ToDoItem } from './ToDosRoot';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
 

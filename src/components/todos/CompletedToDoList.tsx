@@ -1,4 +1,4 @@
-import { ToDoItem } from './ToDos';
+import { ToDoItem } from './ToDosRoot';
 
 interface CompletedToDoListProps {
   completedToDo: ToDoItem;

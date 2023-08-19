@@ -1,5 +1,5 @@
 import { ToDo } from './ToDo';
-import { ToDoItem } from './ToDos';
+import { ToDoItem } from './ToDosRoot';
 
 interface ToDoListProps {
   toDos: ToDoItem[];

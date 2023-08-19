@@ -1,5 +1,5 @@
 import { CompletedToDoList } from './CompletedToDoList';
-import { ToDoItem } from './ToDos';
+import { ToDoItem } from './ToDosRoot';
 
 interface ShowCompletedToDosProps {
   completedToDos: ToDoItem[];

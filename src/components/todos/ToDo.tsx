@@ -41,7 +41,7 @@ export const ToDo = ({
               handleBlur();
               setIsEditing(false);
             }}
-            className="text-center"
+            className="text-center focus:border-gray-400 border-[1.5px] focus:outline-none focus:ring-0 rounded-md"
           />
         ) : (
           <div onClick={() => setIsEditing(true)}>

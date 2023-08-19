@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { ToDoItem } from './ToDosRoot';
 import { EditToDoInput } from './EditToDoInput';
+import { NotEditingToDo } from './NotEditingToDo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faCheck, faPencil } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface ToDoProps {
   toDo: ToDoItem;
@@ -59,29 +60,6 @@ export const ToDo = ({
           />
         </Button>
       </div>
-    </div>
-  );
-};
-
-interface NotEditingToDo {
-  isEditing: boolean;
-  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
-  currentTitle: string;
-}
-
-export const NotEditingToDo = ({
-  isEditing,
-  currentTitle,
-  setIsEditing,
-}: NotEditingToDo) => {
-  return (
-    <div onClick={() => setIsEditing(true)}>
-      <span>{currentTitle}</span>
-      {!isEditing && (
-        <button className="float-right">
-          <FontAwesomeIcon icon={faPencil} className="text-xs pt-[6px]" />
-        </button>
-      )}
     </div>
   );
 };

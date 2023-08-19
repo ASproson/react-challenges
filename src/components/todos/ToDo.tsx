@@ -33,15 +33,21 @@ export const ToDo = ({
     <div className="flex justify-center">
       <div className="w-60 hover:italic cursor-text">
         {isEditing ? (
-          <input
-            type="text"
-            value={editedTitle}
-            onChange={handleTitleChange}
-            onBlur={() => {
-              handleBlur();
-              setIsEditing(false);
-            }}
-            className="text-center focus:border-gray-400 border-[1.5px] focus:outline-none focus:ring-0 rounded-md"
+          // <input
+          //   type="text"
+          //   value={editedTitle}
+          //   onChange={handleTitleChange}
+          //   onBlur={() => {
+          //     handleBlur();
+          //     setIsEditing(false);
+          //   }}
+          //   className="text-center focus:border-gray-400 border-[1.5px] focus:outline-none focus:ring-0 rounded-md"
+          // />
+          <EditToDoInput
+            editedTitle={editedTitle}
+            handleTitleChange={handleTitleChange}
+            handleBlur={handleBlur}
+            setIsEditing={setIsEditing}
           />
         ) : (
           <div onClick={() => setIsEditing(true)}>
@@ -66,5 +72,32 @@ export const ToDo = ({
         </Button>
       </div>
     </div>
+  );
+};
+
+interface EditToDoInputProps {
+  editedTitle: string;
+  handleBlur: () => void;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  handleTitleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const EditToDoInput = ({
+  editedTitle,
+  handleTitleChange,
+  handleBlur,
+  setIsEditing,
+}: EditToDoInputProps) => {
+  return (
+    <input
+      type="text"
+      value={editedTitle}
+      onChange={handleTitleChange}
+      onBlur={() => {
+        handleBlur();
+        setIsEditing(false);
+      }}
+      className="text-center focus:border-gray-400 border-[1.5px] focus:outline-none focus:ring-0 rounded-md"
+    />
   );
 };

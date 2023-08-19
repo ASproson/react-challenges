@@ -19,17 +19,21 @@ export const ToDoList = ({
     <div className="py-4 flex justify-center">
       <div className="w-2/5">
         <div className="py-4 rounded-sm border-[1px] border-gray-400 shadow-md shadow-gray-400 relative">
-          {toDos.map((toDo: ToDoItem) => {
-            return (
-              <ToDo
-                key={toDo.id}
-                toDo={toDo}
-                updateToDo={updateToDo}
-                deleteToDo={deleteToDo}
-                completeToDo={completeToDo}
-              />
-            );
-          })}
+          {toDos.length > 0 ? (
+            toDos.map((toDo: ToDoItem) => {
+              return (
+                <ToDo
+                  key={toDo.id}
+                  toDo={toDo}
+                  updateToDo={updateToDo}
+                  deleteToDo={deleteToDo}
+                  completeToDo={completeToDo}
+                />
+              );
+            })
+          ) : (
+            <p className="text-gray-400">Add some to dos below!</p>
+          )}
         </div>
         <StackedCard margin={2} />
         <StackedCard margin={4} />

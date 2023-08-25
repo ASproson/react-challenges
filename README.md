@@ -4,8 +4,8 @@ This repository contains a number of challenges in relation to React
 
 ## Projects
 
-1. ToDo app --link--
-2. Text analyzer --link--
+1. [ToDo App](https://asproson.github.io/todos)
+2. [Text Analyzer](https://asproson.github.io/textanalyzer)
 
 ## Tech Used
 

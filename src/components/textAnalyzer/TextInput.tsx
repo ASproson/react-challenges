@@ -13,15 +13,36 @@ export const TextInput = () => {
     setTextInput('');
   };
 
-  const words = textInput.length ? textInput.trim().split(/\s+/) : '';
-  const wordCount = words.length;
   const charCount = textInput.replace(/\s+/g, '').length;
+  const words = textInput.length ? textInput.trim().split(/\s+/) : '';
+
+  const analyzerObject = [
+    {
+      title: 'Text Length',
+      data: textInput.length,
+    },
+    {
+      title: 'Word Count',
+      data: words.length,
+    },
+    {
+      title: 'Character Count',
+      data: charCount,
+    },
+  ];
 
   return (
     <div className="App">
-      <p>Text length: {textInput.length}</p>
-      <p>Word count: {wordCount}</p>
-      <p>Character count: {charCount}</p>
+      <>
+        {analyzerObject.map((obj) => {
+          return (
+            <div key={obj.title}>
+              <span>{obj.title}: </span>
+              <span>{obj.data}</span>
+            </div>
+          );
+        })}
+      </>
 
       <div className="pt-4 pb-4">
         <textarea

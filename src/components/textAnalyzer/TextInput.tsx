@@ -6,8 +6,8 @@ export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
 
   const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newText = e.target.value;
-    setTextInput(newText);
+    const newTextInput = e.target.value;
+    setTextInput(newTextInput);
   };
 
   const handleTextAreaReset = () => {

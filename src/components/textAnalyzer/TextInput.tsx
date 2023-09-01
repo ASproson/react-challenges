@@ -1,31 +1,7 @@
 import { useState } from 'react';
+import { analyzeData } from './utils';
 import { Button } from '../todos/Button';
 import { AnalyzedObjects } from './AnalyzedObjects';
-
-const trimInput = (text: string) => {
-  return text.trim().split(/\s+/).length;
-};
-
-const stripSpaces = (text: string) => {
-  return text.replace(/\s+/g, '').length;
-};
-
-const analyzeObjects = (text: string) => {
-  return [
-    {
-      title: 'Text Length',
-      length: text.length,
-    },
-    {
-      title: 'Word Count',
-      length: text.length ? trimInput(text) : 0,
-    },
-    {
-      title: 'Character Count',
-      length: stripSpaces(text),
-    },
-  ];
-};
 
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
@@ -39,11 +15,11 @@ export const TextInput = () => {
     setTextInput('');
   };
 
-  const analyzerObject = analyzeObjects(textInput);
+  const analyzedData = analyzeData(textInput);
 
   return (
     <div className="App">
-      <AnalyzedObjects analyzedData={analyzerObject} />
+      <AnalyzedObjects analyzedData={analyzedData} />
 
       <div className="pt-4 pb-4">
         <textarea

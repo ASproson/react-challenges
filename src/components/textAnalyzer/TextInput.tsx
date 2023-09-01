@@ -35,6 +35,7 @@ export const TextInput = () => {
   return (
     <div className="App">
       <AnalyzedObjects analyzedData={analyzerObject} />
+
       <div className="pt-4 pb-4">
         <textarea
           id="textArea"

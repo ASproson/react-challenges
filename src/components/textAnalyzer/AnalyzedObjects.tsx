@@ -1,18 +1,18 @@
 interface AnalyzedObjectsProps {
   analyzedData: {
     title: string;
-    data: number;
+    length: number;
   }[];
 }
 
 export const AnalyzedObjects = ({ analyzedData }: AnalyzedObjectsProps) => {
   return (
     <>
-      {analyzedData.map(({ title, data }) => {
+      {analyzedData.map(({ title, length }) => {
         return (
           <div key={title}>
             <span>{title}: </span>
-            <span>{data}</span>
+            <span>{length}</span>
           </div>
         );
       })}

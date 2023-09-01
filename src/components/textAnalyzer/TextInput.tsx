@@ -3,7 +3,7 @@ import { Button } from '../todos/Button';
 import { AnalyzedObjects } from './AnalyzedObjects';
 
 const trimInput = (text: string) => {
-  return text.trim().split(/\s+/);
+  return text.trim().split(/\s+/).length;
 };
 
 const stripSpaces = (text: string) => {
@@ -23,20 +23,20 @@ export const TextInput = () => {
   };
 
   const charCount = stripSpaces(textInput);
-  const words = textInput.length ? trimInput(textInput) : '';
+  const numberOfWords = textInput.length ? trimInput(textInput) : 0;
 
   const analyzerObject = [
     {
       title: 'Text Length',
-      data: textInput.length,
+      length: textInput.length,
     },
     {
       title: 'Word Count',
-      data: words.length,
+      length: numberOfWords,
     },
     {
       title: 'Character Count',
-      data: charCount,
+      length: charCount,
     },
   ];
 

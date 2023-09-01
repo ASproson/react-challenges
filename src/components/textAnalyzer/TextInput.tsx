@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { Button } from '../todos/Button';
 import { AnalyzedObjects } from './AnalyzedObjects';
 
+const trimInput = (text: string) => {
+  return text.trim().split(/\s+/);
+};
+
+const stripSpaces = (text: string) => {
+  return text.replace(/\s+/g, '').length;
+};
+
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
 
@@ -14,8 +22,8 @@ export const TextInput = () => {
     setTextInput('');
   };
 
-  const charCount = textInput.replace(/\s+/g, '').length;
-  const words = textInput.length ? textInput.trim().split(/\s+/) : '';
+  const charCount = stripSpaces(textInput);
+  const words = textInput.length ? trimInput(textInput) : '';
 
   const analyzerObject = [
     {

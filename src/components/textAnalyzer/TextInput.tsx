@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '../todos/Button';
+import { AnalyzedObjects } from './AnalyzedObjects';
 
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
@@ -47,27 +48,5 @@ export const TextInput = () => {
         Clear Text Area
       </Button>
     </div>
-  );
-};
-
-interface AnalyzedObjectsProps {
-  analyzedData: {
-    title: string;
-    data: number;
-  }[];
-}
-
-const AnalyzedObjects = ({ analyzedData }: AnalyzedObjectsProps) => {
-  return (
-    <>
-      {analyzedData.map((obj) => {
-        return (
-          <div key={obj.title}>
-            <span>{obj.title}: </span>
-            <span>{obj.data}</span>
-          </div>
-        );
-      })}
-    </>
   );
 };

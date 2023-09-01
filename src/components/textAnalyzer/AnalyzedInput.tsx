@@ -1,11 +1,11 @@
-interface AnalyzedObjectsProps {
+interface AnalyzedInputProps {
   analyzedData: {
     title: string;
     length: number;
   }[];
 }
 
-export const AnalyzedObjects = ({ analyzedData }: AnalyzedObjectsProps) => {
+export const AnalyzedInput = ({ analyzedData }: AnalyzedInputProps) => {
   return (
     <>
       {analyzedData.map(({ title, length }) => {

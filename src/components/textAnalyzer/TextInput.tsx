@@ -33,17 +33,7 @@ export const TextInput = () => {
 
   return (
     <div className="App">
-      <>
-        {analyzerObject.map((obj) => {
-          return (
-            <div key={obj.title}>
-              <span>{obj.title}: </span>
-              <span>{obj.data}</span>
-            </div>
-          );
-        })}
-      </>
-
+      <AnalyzedObjects analyzedData={analyzerObject} />
       <div className="pt-4 pb-4">
         <textarea
           id="textArea"
@@ -57,5 +47,27 @@ export const TextInput = () => {
         Clear Text Area
       </Button>
     </div>
+  );
+};
+
+interface AnalyzedObjectsProps {
+  analyzedData: {
+    title: string;
+    data: number;
+  }[];
+}
+
+const AnalyzedObjects = ({ analyzedData }: AnalyzedObjectsProps) => {
+  return (
+    <>
+      {analyzedData.map((obj) => {
+        return (
+          <div key={obj.title}>
+            <span>{obj.title}: </span>
+            <span>{obj.data}</span>
+          </div>
+        );
+      })}
+    </>
   );
 };

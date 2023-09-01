@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { analyzeData } from './utils';
 import { Button } from '../todos/Button';
-import { AnalyzedObjects } from './AnalyzedObjects';
+import { AnalyzedInput } from './AnalyzedInput';
 
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
@@ -19,7 +19,7 @@ export const TextInput = () => {
 
   return (
     <div className="App">
-      <AnalyzedObjects analyzedData={analyzedData} />
+      <AnalyzedInput analyzedData={analyzedData} />
 
       <div className="pt-4 pb-4">
         <textarea

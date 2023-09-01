@@ -10,6 +10,23 @@ const stripSpaces = (text: string) => {
   return text.replace(/\s+/g, '').length;
 };
 
+const analyzeObjects = (text: string) => {
+  return [
+    {
+      title: 'Text Length',
+      length: text.length,
+    },
+    {
+      title: 'Word Count',
+      length: text.length ? trimInput(text) : 0,
+    },
+    {
+      title: 'Character Count',
+      length: stripSpaces(text),
+    },
+  ];
+};
+
 export const TextInput = () => {
   const [textInput, setTextInput] = useState('');
 
@@ -22,23 +39,7 @@ export const TextInput = () => {
     setTextInput('');
   };
 
-  const charCount = stripSpaces(textInput);
-  const numberOfWords = textInput.length ? trimInput(textInput) : 0;
-
-  const analyzerObject = [
-    {
-      title: 'Text Length',
-      length: textInput.length,
-    },
-    {
-      title: 'Word Count',
-      length: numberOfWords,
-    },
-    {
-      title: 'Character Count',
-      length: charCount,
-    },
-  ];
+  const analyzerObject = analyzeObjects(textInput);
 
   return (
     <div className="App">

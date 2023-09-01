@@ -8,11 +8,11 @@ interface AnalyzedObjectsProps {
 export const AnalyzedObjects = ({ analyzedData }: AnalyzedObjectsProps) => {
   return (
     <>
-      {analyzedData.map((obj) => {
+      {analyzedData.map(({ title, data }) => {
         return (
-          <div key={obj.title}>
-            <span>{obj.title}: </span>
-            <span>{obj.data}</span>
+          <div key={title}>
+            <span>{title}: </span>
+            <span>{data}</span>
           </div>
         );
       })}

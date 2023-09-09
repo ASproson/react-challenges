@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { LINKS } from './todos/lib/NAV_LINKS';
+import { LINKS } from './lib/NAV_LINKS';
 
 export const NavBar = () => {
   return (

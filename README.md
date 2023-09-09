@@ -14,16 +14,19 @@ https://reactchallenges.live/dashboard/hooks
 
 ## Projects
 
-1. [ToDo App](https://asproson.github.io/todos)
-2. [Text Analyzer](https://asproson.github.io/textanalyzer)
+1. [ToDo App]([https://asproson.github.io/todos](https://github.com/ASproson/react-challenges/tree/main/src/components/todos))
+2. [Text Analyzer]([https://asproson.github.io/textanalyzer](https://github.com/ASproson/react-challenges/tree/main/src/components/textAnalyzer))
+3. [Poké Cards](https://github.com/ASproson/react-challenges/tree/main/src/components/pokeCards)
 
 ## Tech Used
 
 - React
 - Clsx
 - UUID
+- Axios
 - React Router
 - Tailwind CSS
 - React Toastify
 - React Router DOM
 - FontAwesomeIcons
+- TanStack React Query

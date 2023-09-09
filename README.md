@@ -14,7 +14,7 @@ https://reactchallenges.live/dashboard/hooks
 
 ## Projects
 
-1. [ToDo App]([https://asproson.github.io/todos](https://github.com/ASproson/react-challenges/tree/main/src/components/todos))
+1. [ToDo App](https://github.com/ASproson/react-challenges/tree/main/src/components/todos)
 2. [Text Analyzer](https://github.com/ASproson/react-challenges/tree/main/src/components/textAnalyzer)
 3. [Poké Cards](https://github.com/ASproson/react-challenges/tree/main/src/components/pokeCards)
 

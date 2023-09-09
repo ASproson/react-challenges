@@ -4,6 +4,7 @@ import { ToDosRoot } from './components/todos/ToDosRoot';
 import { NavBar } from './components/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TextAnalyzerRoot } from './components/textAnalyzer/TextAnalyzerRoot';
+import { PokeCardsRoot } from './components/pokeCards/PokeCardsRoot';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/todos" element={<ToDosRoot />} />
           <Route path="/textanalyzer" element={<TextAnalyzerRoot />} />
+          <Route path="/pokecards" element={<PokeCardsRoot />} />
         </Routes>
       </BrowserRouter>
     </div>
